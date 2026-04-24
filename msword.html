@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latihan Microsoft Word</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+background:#070707;
+color:white;
+padding:40px;
+}
+
+/* tombol kembali */
+.back-btn{
+display:inline-block;
+margin-bottom:20px;
+color:#aaa;
+text-decoration:none;
+transition:.3s;
+font-size:14px;
+}
+
+.back-btn:hover{
+color:#2b579a;
+}
+
+/* BANNER */
+.banner-word{
+background:#0f0f0f;
+border:1px solid #222;
+border-radius:20px;
+padding:60px;
+margin-bottom:30px;
+text-align:center;
+box-shadow:0 0 30px rgba(255,255,255,.04);
+}
+
+.word-title{
+font-size:clamp(2rem,6vw,3.5rem);
+font-weight:900;
+letter-spacing:3px;
+text-transform:uppercase;
+color:white;
+animation:glitch 3s infinite;
+}
+
+.word-title span{
+color:#2b579a;
+text-shadow:0 0 20px rgba(43,87,154,.5);
+}
+
+/* GRID */
+.task-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+/* CARD */
+.task-card{
+background:#111;
+border:1px solid #222;
+padding:25px;
+border-radius:16px;
+text-decoration:none;
+color:white;
+transition:.3s;
+font-weight:600;
+text-align:center;
+}
+
+.task-card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px rgba(43,87,154,.3);
+border:1px solid #2b579a;
+}
+
+/* ANIMASI */
+@keyframes glitch{
+0%,90%,100%{
+transform:skew(0deg);
+text-shadow:0 0 5px rgba(255,255,255,0.2);
+}
+
+91%{
+transform:skew(3deg);
+text-shadow:3px 0 #2b579a,-3px 0 #00fff9;
+}
+
+93%{
+transform:skew(-3deg);
+}
+
+95%{
+transform:skew(0deg);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="index.html" class="back-btn">← Kembali ke Profil</a>
+
+<div class="banner-word">
+<h1 class="word-title">
+MICROSOFT
+<span>WORD</span>
+</h1>
+</div>
+
+<div class="task-grid">
+
+<a href="https://drive.google.com/file/d/1CVWYQXiKnoTMHLZhWfhzVXEDoHp11PHz/view" class="task-card" target="_blank">
+LATIHAN 1
+</a>
+
+<a href="https://drive.google.com/file/d/1DJckX7Fh14CW4Lg9YpQToICsGzXgb5H3/view" class="task-card" target="_blank">
+LATIHAN 2
+</a>
+
+<a href="https://drive.google.com/file/d/1BtBCwuZgWt5JprWA9Y4QwHqNA3RrRUVx/view" class="task-card" target="_blank">
+LATIHAN 3
+</a>
+
+<a href="https://drive.google.com/file/d/1gK0RgC3nY9pgNigrDdDMwpcEjMWmBTwT/view" class="task-card" target="_blank">
+LATIHAN 4
+</a>
+
+<a href="https://drive.google.com/file/d/18LGRZn77d6ZeYCuHyqZI6SVjWdT3jtAg/view" class="task-card" target="_blank">
+LATIHAN 5
+</a>
+
+<a href="https://drive.google.com/file/d/1IKC9n9wok1dggBiO5SZDQQuVJPX_i3Cs/view" class="task-card" target="_blank">
+LATIHAN 6
+</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Profile Saya</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+.proposal-banner{
+grid-column: span 2;
+padding:35px;
+cursor:pointer;
+text-decoration:none;
+color:white;
+display:block;
+}
+
+.proposal-wrap{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+position:relative;
+}
+
+.proposal-typing{
+font-size:22px;
+font-weight:600;
+white-space:nowrap;
+transition:.3s;
+}
+
+.proposal-icon{
+opacity:0;
+transform:translateX(-8px);
+transition:.3s;
+font-size:22px;
+}
+
+/* hover */
+.proposal-banner:hover .proposal-typing{
+transform:translateX(-10px);
+}
+
+.proposal-banner:hover .proposal-icon{
+opacity:1;
+transform:translateX(0);
+}
+
+:root{
+--bg:#070707;
+--card:#111;
+--text:#fff;
+--muted:#9a9a9a;
+--border:#262626;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:var(--bg);color:var(--text)}
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+backdrop-filter: blur(10px);
+background:rgba(0,0,0,0.6);
+border-bottom:1px solid var(--border);
+z-index:100;
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+}
+
+nav a{color:var(--muted);text-decoration:none;margin-left:25px}
+nav a:hover{color:white}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding-top:80px;
+}
+
+.hero-container{
+display:grid;
+grid-template-columns:300px 1fr;
+max-width:1100px;
+gap:60px;
+align-items:center;
+}
+
+.profile-photo{
+width:280px;
+height:280px;
+border-radius:26px;
+overflow:hidden;
+border:1px solid #222;
+box-shadow:
+0 0 20px rgba(255,255,255,0.05),
+0 0 60px rgba(255,255,255,0.03);
+}
+
+.profile-photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+filter:grayscale(100%);
+}
+
+.profile-photo:hover img{
+filter:grayscale(0%);
+transform:scale(1.05);
+}
+
+.hero-text h1{font-size:42px;margin-bottom:10px}
+.hero-text p{color:var(--muted);line-height:1.6;margin-bottom:20px}
+
+.btn{
+padding:12px 26px;
+border-radius:12px;
+border:1px solid #333;
+background:transparent;
+color:white;
+cursor:pointer;
+}
+
+.btn:hover{background:white;color:black}
+
+section{padding:80px 20px;max-width:1200px;margin:auto}
+.section-title{font-size:26px;margin-bottom:25px}
+
+/* ABOUT */
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.about-card{
+background:#111;
+padding:25px;
+border-radius:18px;
+border:1px solid #222;
+box-shadow:
+0 0 20px rgba(255,255,255,.04);
+}
+
+/* PORTAL */
+.portal{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+}
+
+.portal-card{
+background:linear-gradient(180deg,#111,#0c0c0c);
+border:1px solid #1f1f1f;
+padding:14px;
+border-radius:24px;
+position:relative;
+transition:.35s;
+}
+
+.portal-card:hover{
+transform:translateY(-10px) scale(1.01);
+box-shadow:
+0 15px 40px rgba(0,0,0,.7),
+0 0 25px rgba(255,255,255,.08),
+0 0 70px rgba(255,255,255,.05);
+}
+
+.portal-card:active{
+transform:scale(.97);
+box-shadow:0 0 25px rgba(255,255,255,.25);
+}
+
+.portal-image{
+height:170px;
+border-radius:18px;
+overflow:hidden;
+margin-bottom:12px;
+}
+
+.portal-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.portal-card:hover img{
+transform:scale(1.08);
+filter:saturate(1.2);
+}
+
+.portal-btn{display:inline-block;margin-top:10px;font-size:14px}
+
+/* SOCIAL */
+.social-grid{display:flex;flex-wrap:wrap;gap:15px}
+
+.social-card{
+width:140px;
+background:#111;
+border:1px solid #222;
+padding:15px;
+border-radius:18px;
+display:flex;
+align-items:center;
+gap:12px;
+transition:.3s;
+}
+
+.social-card:hover{
+transform:translateY(-5px);
+box-shadow:
+0 0 20px rgba(255,255,255,.08),
+0 0 40px rgba(255,255,255,.05);
+}
+
+.social-card img{width:28px;height:28px}
+
+footer{
+border-top:1px solid #222;
+padding:30px;
+text-align:center;
+color:var(--muted);
+}
+
+@media(max-width:900px){
+.hero-container{grid-template-columns:1fr;text-align:center}
+.profile-photo{margin:auto}
+.about{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-container">
+<div>MY PROFILE</div>
+<div>
+<a href="#home">Home</a>
+<a href="#about">Tentang</a>
+<a href="#portal">Project</a>
+<a href="#layanan">Layanan</a>
+<a href="#social">Sosmed</a>
+</div>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<div class="hero-container">
+
+<div class="profile-photo">
+<img src="pisprof.jpeg">
+</div>
+
+<div class="hero-text">
+<h1>Hafish Raditya</h1>
+<p>
+Terima kasih sudah berkunjung ke situs ini.
+Di sini kamu bisa menemukan tiga bagian utama:
+
+Tentang Saya – berisi informasi singkat mengenai siapa saya dan latar belakang saya.
+Projek Saya – menampilkan karya, tugas, atau ide yang pernah saya kerjakan.
+Refleksi – berisi catatan, pembelajaran, dan pengalaman yang saya dapat dari berbagai kegiatan.
+
+Silakan jelajahi menu yang tersedia sesuai kebutuhan.
+</p>
+<button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+Tentang Saya
+</button>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT DIDAHULUKAN -->
+<section id="about">
+<h2 class="section-title">Tentang Saya</h2>
+
+<div class="about">
+
+<div class="about-card">
+<h3>Profil</h3>
+<p>
+Nama saya Hafish Raditya, berusia 16 tahun.
+Saya saat ini duduk di kelas X AKL 2.
+Sebelumnya saya bersekolah di SMPN 3 Tanjung Pandan, dan sekarang melanjutkan di SMKN 1 Tanjung Pandan karena tertarik dengan jurusan Akuntansi.
+</p>
+</div>
+
+<div class="about-card">
+<h3>Skill</h3>
+<p>
+• HTML CSS<br>
+• Website Topup<br>
+• Menguasai mengolah data menggunakan Excel<br>
+• Menguasai aplikasi Word<br>
+• Mampu membuat Jurnal Umum (Akun)
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- PORTAL -->
+<section id="portal">
+<h2 class="section-title">Tersedia</h2>
+
+<div class="portal">
+
+<div class="portal-card" style="grid-column: span 2;">
+<div class="portal-image">
+<img src="bpro2.png">
+</div>
+<h3>Project</h3>
+<p>Menampilkan berbagai karya, tugas, dan ide kreatif yang telah saya kerjakan selama proses pembelajaran. Setiap project mencerminkan kemampuan saya dalam berpikir kritis, memecahkan masalah, serta mengembangkan solusi yang inovatif. Halaman ini menjadi wadah untuk menunjukkan perkembangan skill saya, baik secara teknis maupun kreatif, dalam berbagai bidang yang saya tekuni</p>
+</div>
+
+<div class="portal-card">
+<div class="portal-image">
+<img src="bword.jpg">
+</div>
+<h3>MS Word</h3>
+<p>Kumpulan tugas Microsoft Word.</p>
+<a href="msword.html" class="portal-btn">Lihat Tugas →</a>
+</div>
+
+<div class="portal-card">
+<div class="portal-image">
+<img src="bex.jpg">
+</div>
+<h3>MS Excel</h3>
+<p>Kumpulan tugas Excel seperti tabel dan rumus.</p>
+<a href="msexcel.html" class="portal-btn">Lihat Tugas →</a>
+</div>
+
+<a href="proposal.html" class="portal-card proposal-banner">
+
+<div class="proposal-wrap">
+<div class="proposal-typing">
+Tugas Proposal Seminar
+</div>
+
+<div class="proposal-icon">
+💻
+</div>
+</div>
+
+</a>
+</section>
+<section id="layanan">
+<h2 class="section-title">Layanan Website</h2>
+
+<div class="portal">
+
+<div class="portal-card">
+<div class="portal-image">
+<img src="ref.jpeg">
+</div>
+<h3>Refleksi</h3>
+<p>Berisi kumpulan catatan, pembelajaran, serta pengalaman berharga yang saya peroleh dari berbagai kegiatan dan proses yang telah saya lalui. Melalui refleksi ini, saya mengevaluasi perkembangan diri, memahami kekuatan dan kekurangan, serta menjadikannya sebagai dasar untuk terus belajar dan berkembang menjadi pribadi yang lebih baik di masa depan</p>
+<a href="#" class="portal-btn">Buka Sekarang →</a>
+</div>
+
+<div class="portal-card">
+<div class="portal-image">
+<img src="SzaeT.png">
+</div>
+<h3>Topup Game</h3>
+<p>Saya mengembangkan website topup game pribadi menggunakan HTML dengan fokus pada desain modern dan pengalaman pengguna. Platform ini menyediakan layanan topup untuk Mobile Legends, Free Fire, dan PUBG dalam satu portal yang rapi, cepat, dan profesional sebagai store digital yang saya bangun sendiri</p>
+<a href="#" class="portal-btn">Pesan Sekarang →</a>
+</div>
+
+</div>
+</section>
+
+<section id="social">
+<h2 class="section-title">Social Media</h2>
+
+<div class="social-grid">
+
+<a class="social-card" href="#">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png">
+<span>TikTok</span>
+</a>
+
+<a class="social-card" href="#">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<span>Instagram</span>
+</a>
+
+<a class="social-card" href="#">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+<span>WhatsApp</span>
+</a>
+
+<a class="social-card" href="#">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+<span>YouTube</span>
+</a>
+
+</div>
+</section>
+
+<footer>
+© 2026 Profile Website
+</footer>
+
+</body>
+</html>
